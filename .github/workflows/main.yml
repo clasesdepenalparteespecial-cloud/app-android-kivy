@@ -26,8 +26,10 @@ jobs:
     - name: Cache Buildozer global directory
       uses: actions/cache@v4
       with:
-        path: .buildozer_global
+        path: ~/.buildozer  # <--- ESTA ERA LA LÍNEA CON EL ERROR, AHORA CORREGIDA
         key: buildozer-global-v1-${{ runner.os }}-${{ hashFiles('buildozer.spec') }}
+        restore-keys: |
+          buildozer-global-v1-${{ runner.os }}-
 
     - name: Install dependencies
       run: |
