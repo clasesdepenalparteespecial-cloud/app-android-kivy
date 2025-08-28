@@ -12,12 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build with Kivy-Build-Action
-        uses: ArtemSBulgakov/build-kivy-app-action@v1.3.0
+      - name: Build with official Kivy action
+        uses: kivy/build-kivy-action@v1
         with:
-          app_name: "Subir clases"
-          app_package: "org.test.miapp"
-          app_version: "0.1"
-          requirements: "kivy,plyer,google-api-python-client,google-auth-oauthlib,google-auth-httplib2,requests"
-          build_dir: "."
-          archs: "arm64-v8a"
+          # Aquí le decimos qué comando ejecutar
+          run: |
+            buildozer -v android debug
+
+          # Aquí le decimos dónde encontrar el APK
+          apk_path: "bin/*.apk"
