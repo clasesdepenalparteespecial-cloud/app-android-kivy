@@ -1,9 +1,7 @@
 name: Build Kivy Android App
-
 on:
   push:
     branches: [ "main" ]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -11,7 +9,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Build with Kivy-Build-Action
         uses: ArtemSBulgakov/build-kivy-app-action@v1.3.0
         with:
